@@ -3,7 +3,7 @@ var botonDesenncriptar = document.querySelector("#btn-desencriptar");
 var botonCopy = document.querySelector("#btn-copy");
 var texto = document.querySelector("#input-texto");
 var result = document.querySelector("#msg");
-console.log(texto)
+
 function encriptar(){
     /* Reglas de encriptación: 
 "e" es convertido para "enter" 
@@ -15,9 +15,9 @@ Solo letras minusculas
 No se permite acentuación de palabras 
 */
     event.preventDefault();
-    var txt=texto.value;
-    var enc=txt.replace(/e/gi,'enter').replace(/i/gi,'imes').replace(/a/gi,'ai').replace(/o/gi,'ober').replace(/u/gi,'ufat');
-    result.value=enc;
+    var txt = texto.value;
+    var enc = txt.replace(/e/gi,'enter').replace(/i/gi,'imes').replace(/a/gi,'ai').replace(/o/gi,'ober').replace(/u/gi,'ufat');
+    result.value = enc;
     
 }
 function desencriptar(){
@@ -32,17 +32,18 @@ Solo letras minusculas
 No se permite acentuación de palabras   
 */
     event.preventDefault();
-    var txt=texto.value;
-    var desEnc=txt.replace(/enter/gi,'e').replace(/imes/gi,'i').replace(/ai/gi,'a').replace(/ober/gi,'o').replace(/ufat/gi,'u');
-    result.value=desEnc;
+    var txt = texto.value;
+    var desEnc = txt.replace(/enter/gi,'e').replace(/imes/gi,'i').replace(/ai/gi,'a').replace(/ober/gi,'o').replace(/ufat/gi,'u');
+    result.value = desEnc;
     
 }
 function copiar(){
-    txt=result.value;
+    txt = result.value;
     navigator.clipboard.writeText(txt);
+    result.value = "";
 }
-botonEncriptar.onclick=encriptar;
-botonDesenncriptar.onclick=desencriptar;
-botonCopy.onclick=copiar;
+botonEncriptar.onclick = encriptar;
+botonDesenncriptar.onclick = desencriptar;
+botonCopy.onclick = copiar;
 
 
